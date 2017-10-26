@@ -49,7 +49,7 @@ class FileCommand extends BaseCommand
 		}
 		
 		// Read the urls from the file
-		$urls = file($filepath);
+		$urls = file($filepath, FILE_IGNORE_NEW_LINES);
 		
 		$text =  PHP_EOL ."Threads: ". $input->getOption("threads");
         $text .= PHP_EOL ."Wait: ".    $input->getOption("wait") ." Seconds";
