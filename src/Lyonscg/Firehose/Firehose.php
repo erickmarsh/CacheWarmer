@@ -23,7 +23,7 @@ class Firehose
 		$this->client = new Client();
 	}
 	
-	public function blast($urls = [], $threads = 8, $wait= 2000) 
+	public function blast($urls = [], $threads = 5, $wait= 2000) 
 	{
 		echo "Blasting!!!";
 		
@@ -53,7 +53,7 @@ class Firehose
 
 
 		$pool = new Pool($client, $requests($urls), [
-			'concurrency' => 5,
+			'concurrency' => $threads,
 			'fulfilled' => function ($response, $index) {
 				// this is delivered each successful response
 			},

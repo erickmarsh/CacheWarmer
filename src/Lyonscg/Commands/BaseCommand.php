@@ -30,8 +30,8 @@ class BaseCommand extends Command
                'threads',
                't',
                InputOption::VALUE_OPTIONAL,
-               'Number of threads to run at once (8)',
-				8
+               'Number of threads to run at once (5)',
+				5
             )  
             ->addOption(
                'wait',
