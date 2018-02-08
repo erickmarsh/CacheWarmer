@@ -43,10 +43,14 @@ class FileCommand extends BaseCommand
     {
 		$filepath = $input->getArgument('file_path');
 		
-		if (!file_exists($filepath) || !is_readable($filepath))
+		if (!file_exists($filepath))
 		{
-			throw new \Exception("File not found or is not readable: ". $filepath);
-		}
+			throw new \Exception("File not found: ". $filepath);
+        }
+        elseif (!is_readable($filepath))
+        {
+            throw new \Exception("File not readable: ". $filepath);
+        }
 		
 		// Read the urls from the file
 		$urls = file($filepath, FILE_IGNORE_NEW_LINES);

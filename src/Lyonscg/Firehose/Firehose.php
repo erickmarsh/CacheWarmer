@@ -42,6 +42,7 @@ class Firehose
 		$client = new \GuzzleHttp\Client(
 			[
 				'handler' => $stack,
+				'timeout' => 10,
 			]
 		);
 		
